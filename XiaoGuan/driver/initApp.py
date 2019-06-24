@@ -19,19 +19,22 @@ class initApp():
         return cls.driver
 
     def openApp(self):
-        time.sleep(3)
+
         self.driver = self.initApp() #之前方法内函数都报没有self,因为没有定义driver？
         self.driver.find_element_by_xpath('//*').click()
-        self.driver.swipe(1000,800,200,800)
-        time.sleep(1)
-        self.driver.swipe(1000,800,200,800)
+        width = self.driver.get_window_size()['width']
+        height = self.driver.get_window_size()['height']
+
+        print(width)
+        time.sleep(3)
+        self.driver.swipe(0.8*width, 0.5*height, 0.2*width, 0.5*height)
+        time.sleep(2)
+        self.driver.swipe(0.8*width, 0.5*height, 0.2*width, 0.5*height)
         self.driver.find_element_by_xpath('//*').click()
         self.driver.find_element_by_id('goto').click()
         self.driver.back()
 
 
-
-
-# a = initApp()
-# a.openApp()
-# a.login()
+a = initApp()
+a.openApp()
+a.login()
