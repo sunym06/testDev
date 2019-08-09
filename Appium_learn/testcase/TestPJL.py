@@ -14,16 +14,17 @@ class TestPJL(object):
         caps["appActivity"] = "io.dcloud.PandoraEntryActivity"
         caps["autoGrantPermissions"] = "true"
         # caps["noReset"] = "true"
-        driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
-        driver.implicitly_wait(10)
-        return driver
+        cls.driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
+        cls.driver.implicitly_wait(10)
+        return cls.driver
 
     @classmethod
     def setup_class(cls):
         print('setup class')
-        cls.driver = TestPJL.installPJL()
-        cls.driver()
-        cls.Fri_open()
+        # cls.driver = TestPJL.installPJL()
+
+        TestPJL.direct()
+        TestPJL.Fri_open()
 
     def setup_method(self):
         print('setup method')

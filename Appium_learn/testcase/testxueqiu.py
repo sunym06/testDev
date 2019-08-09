@@ -12,6 +12,10 @@ class Testxueqiu():
     @classmethod
     def setup_class(cls):
         print('setup class')
+
+        print('setup class')
+
+
         # Testxueqiu.install()
 
     def setup_method(cls):
